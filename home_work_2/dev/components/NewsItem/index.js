@@ -1,7 +1,6 @@
 import React from 'react';
 
 const NewsItem = (props) => {
-    console.log(props);
     return (
         <div className="news-item card" style={{width: 40 + '%'}}>
             <img className="card-img-top" src={props.urlToImage} alt="Card image cap"/>
