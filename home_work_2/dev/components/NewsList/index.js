@@ -2,10 +2,9 @@ import React from 'react';
 import NewsItem from '../NewsItem';
 
 const NewsList = ({articles, newsCounter}) => {
-
     const elements = articles.map((item, index) => {
         return (
-            index + 1 <= newsCounter ? <NewsItem key={item.url} {...item} /> : null
+            index + 1 <= newsCounter ? <NewsItem key={item.id ? item.id : item.url} {...item} /> : null
         )
     });
 
