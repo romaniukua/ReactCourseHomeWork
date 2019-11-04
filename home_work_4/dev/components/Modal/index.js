@@ -8,8 +8,7 @@ const Modal = ({addNews}) => {
     const [url, changeUrl] = useState('');
     const [description, changeDescription] = useState('');
     
-    const handleChange = ({target}) => {
-        const [name, value] = target;
+    const handleChange = ({target: {name, value}}) => {
         switch (name) {
             case 'title': 
                 changeTitle(value);

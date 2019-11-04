@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import NewsService from '../../service/NewsService';
 import Header from '../Header';
 import NewsList from '../NewsList';
@@ -8,10 +8,9 @@ const App = () => {
     const [articles, changeArticles] = useState([]);
     const [counterToShow, changeCounterToShow] = useState(4);
 
-    useEffect(() =>{
+    useEffect(() => {
         const service = new NewsService();
         service.getTopNews().then(articles => {
-            localStorage.setItem('savedNews', JSON.stringify(articles.filter(item => item.id )));
             const savedNews = localStorage['savedNews'] ? JSON.parse(localStorage['savedNews']) : [];
             changeArticles([
                 ...savedNews,
@@ -21,6 +20,9 @@ const App = () => {
     });
 
     const createNews = (item) => {
+        localStorage.setItem('savedNews', JSON.stringify(
+            [item, ...articles.filter(item => item.id)])
+        );
         changeArticles([
             item,
             ...articles
@@ -29,11 +31,11 @@ const App = () => {
 
     return (
         <div className="container d-flex flex-column bg-white">
-            <Header/>
+            <Header />
             <button className="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">Add news</button>
-            <NewsList articles = {articles} newsCounter = {counterToShow}/>
-            <button className='btn btn-link' onClick= {() => changeCounterToShow(counterToShow + 2)}>Show more</button>
-            <Modal addNews = {createNews}/>
+            <NewsList articles={articles} newsCounter={counterToShow} />
+            <button className='btn btn-link' onClick={() => changeCounterToShow(counterToShow + 2)}>Show more</button>
+            <Modal addNews={createNews} />
         </div>
     );
 
