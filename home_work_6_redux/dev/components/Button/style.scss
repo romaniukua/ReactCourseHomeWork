@@ -1,0 +1,32 @@
+.underscored{
+    position: relative;
+    &:hover,
+    &:visited{
+        text-decoration: none;
+    }
+
+    &::before{
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 1px;
+        background: #007bff;
+        transition: 0.2s;
+        transform: scaleX(0);
+    }
+    &:hover::before{
+        transform: scaleX(1);
+    }
+}
+
+.small{
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    transition: .3s;
+    &:hover{
+        transform: scale(1.5);
+    }
+}
