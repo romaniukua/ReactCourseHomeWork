@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './style.scss';
 
 const Button = (props) => {
-    const {children, theme = '', type = 'button'} = props;
+    const {children, theme = '', type = 'button', id = ''} = props;
     const classes = theme.split(' ');
     let cls = 'btn';
     classes.forEach(item => {
@@ -50,7 +51,7 @@ const Button = (props) => {
     }
 
     return (
-        type === 'anchor' ? <a href={props.href} className={cls}>{children}</a> :
+        type === 'anchor' ? <Link to={`/news/${id}`} className={cls}>{children}</Link> :
         <button className={cls} type = {type} {...newProps}>
            {children}
         </button>

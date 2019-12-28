@@ -1,6 +1,8 @@
 .header{
     padding: 20px 0;
-    .title{
-        color: gray;
+    .title__link:hover{
+        text-decoration: none;
+        transition: .5s;
     }
+    
 }

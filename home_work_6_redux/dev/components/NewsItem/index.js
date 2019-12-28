@@ -27,7 +27,7 @@ const NewsItem = (props) => {
                 </div>
                 <h5 className="card-title">{title}</h5>
                 <p className="card-text">{description}</p>
-                <Button type='anchor' href={url} theme='primary'>Go somewhere</Button>
+                <Button type='anchor' id={id} theme='primary'>Go somewhere</Button>
             </div>
         </div>
     );
